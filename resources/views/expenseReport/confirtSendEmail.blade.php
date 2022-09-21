@@ -6,7 +6,7 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <h1>New report</h1>
+            <h1>Send report</h1>
         </div>
     </div>
     <div class="row">
@@ -25,14 +25,14 @@
                 </ul>
             </div>
             @endif
-            <form action="/expense_reports" method="POST">
+            <form action="/expense_reports/{{ $report->id }}/SendEmail" method="POST">
                 @csrf
                 <div class="form-group">
-                    <label for="title">Title:</label>
-                    <input type="text" class="form-control" id="title" name="title" placeholder="Tipe a title"
-                        value="{{ old('title') }}">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Tipe a email"
+                        value="{{ old('email') }}">
                 </div>
-                <button class="btn btn-primary" type="submit">Submit</button>
+                <button class="btn btn-primary" type="submit">Send mail</button>
             </form>
         </div>
     </div>

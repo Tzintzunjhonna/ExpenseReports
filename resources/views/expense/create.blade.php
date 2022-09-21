@@ -6,12 +6,12 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <h1>New report</h1>
+            <h1>New expense</h1>
         </div>
     </div>
     <div class="row">
         <div class="col">
-            <a class="btn btn-secondary" href="/expense_reports/">Back</a>
+            <a class="btn btn-secondary" href="/expense_reports/{{ $report->id }}">Back</a>
         </div>
     </div>
     <div class="row">
@@ -25,12 +25,17 @@
                 </ul>
             </div>
             @endif
-            <form action="/expense_reports" method="POST">
+            <form action="/expense_reports/{{ $report->id }}/expenses" method="POST">
                 @csrf
                 <div class="form-group">
-                    <label for="title">Title:</label>
-                    <input type="text" class="form-control" id="title" name="title" placeholder="Tipe a title"
-                        value="{{ old('title') }}">
+                    <label for="description">Description:</label>
+                    <input type="text" class="form-control" id="description" name="description"
+                        placeholder="Tipe a description" value="{{ old('description') }}">
+                </div>
+                <div class="form-group">
+                    <label for="amount">Amount:</label>
+                    <input type="text" class="form-control" id="amount" name="amount" placeholder="Tipe a amount"
+                        value="{{ old('amount') }}">
                 </div>
                 <button class="btn btn-primary" type="submit">Submit</button>
             </form>
